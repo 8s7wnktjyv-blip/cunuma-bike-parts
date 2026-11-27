@@ -142,10 +142,14 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+const githubPages = process.env.GITHUB_PAGES === "1";
+const pagesBase = "/cunuma-bike-parts/";
+
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
 export default defineConfig(({ command, isPreview }) => ({
+  base: githubPages ? pagesBase : "/",
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -166,7 +170,34 @@ export default defineConfig(({ command, isPreview }) => ({
     // PWA head + ?install=1 tutorial page; runs before Start/Nitro.
     grokPwaPlugin(),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart(
+      githubPages
+        ? {
+            router: { basepath: "/cunuma-bike-parts" },
+            prerender: {
+              enabled: true,
+              crawlLinks: true,
+              failOnError: true,
+            },
+            pages: [
+              { path: "/" },
+              { path: "/road" },
+              { path: "/gravel" },
+              { path: "/produkt/road" },
+              { path: "/produkt/gravel" },
+              { path: "/technologie" },
+              { path: "/ueber-uns" },
+              { path: "/konfigurator" },
+              { path: "/anfrage" },
+              { path: "/kontakt" },
+              { path: "/checkout" },
+              { path: "/faq" },
+              { path: "/impressum" },
+              { path: "/datenschutz" },
+            ],
+          }
+        : undefined,
+    ),
     ...(command === "build" || isPreview
       ? [
           nitro({

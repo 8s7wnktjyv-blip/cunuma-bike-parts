@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company } from "@/data/content";
 import { Pending } from "@/components/site/shell";
+import { asset } from "@/lib/utils";
 
 export const Route = createFileRoute("/ueber-uns")({
   head: () => ({
@@ -21,7 +22,7 @@ function About() {
     <main id="inhalt">
       <section className="bg-paper px-5 py-20 text-ink">
         <div className="mx-auto max-w-6xl">
-          <img src="/logo-dark.png" alt="CUNUMA" width={1343} height={279} className="h-12 w-auto sm:h-16" />
+          <img src={asset("/logo-dark.png")} alt="CUNUMA" width={1343} height={279} className="h-12 w-auto sm:h-16" />
           <h1 className="mt-10 max-w-3xl font-display text-5xl sm:text-6xl">Eine Marke, noch ohne Legende.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
             CUNUMA steht für Carbon-Laufräder im Road- und Gravel-Bereich. Der Auftritt ist international,
@@ -32,7 +33,7 @@ function About() {
       </section>
       <section className="grid lg:grid-cols-2">
         <img
-          src="/images/atelier.jpg"
+          src={asset("/images/atelier.jpg")}
           alt="Stilles Arbeitsbild mit Carbonmaterial. Kein bestätigter Fertigungsstandort."
           width={1728}
           height={1152}

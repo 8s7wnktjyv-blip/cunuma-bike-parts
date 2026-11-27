@@ -3,6 +3,7 @@ import { useState } from "react";
 import { InquiryForm } from "@/components/site/inquiry-form";
 import { Pending } from "@/components/site/shell";
 import { getProduct } from "@/data/catalog";
+import { asset } from "@/lib/utils";
 
 export const Route = createFileRoute("/produkt/$slug")({
   loader: ({ params }) => {
@@ -42,7 +43,7 @@ function ProductPage() {
           </p>
           {image ? (
             <img
-              src={image.src}
+              src={asset(image.src)}
               alt={image.alt}
               width={image.width}
               height={image.height}
@@ -59,7 +60,7 @@ function ProductPage() {
                 aria-label={`Bild ${index + 1} anzeigen`}
                 onClick={() => setActive(index)}
               >
-                <img src={item.src} alt="" width={item.width} height={item.height} className="aspect-square w-full object-cover" />
+                <img src={asset(item.src)} alt="" width={item.width} height={item.height} className="aspect-square w-full object-cover" />
               </button>
             ))}
           </div>

@@ -2,6 +2,7 @@ import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/r
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { CookieNotice, SiteFooter, SiteHeader } from "@/components/site/shell";
+import { asset } from "@/lib/utils";
 import appCss from "../styles.css?url";
 
 const TITLE = "CUNUMA — Carbon-Laufräder";
@@ -19,10 +20,10 @@ export const Route = createRootRoute({
       { name: "robots", content: "index,follow" },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/svg+xml", href: asset("/favicon.svg") },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+      { rel: "manifest", href: asset("/__grok/manifest.webmanifest") },
+      { rel: "apple-touch-icon", href: asset("/__grok/icon-180.png") },
     ],
   }),
   component: Root,

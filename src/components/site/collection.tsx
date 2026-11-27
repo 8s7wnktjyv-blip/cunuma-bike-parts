@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { Product } from "@/data/catalog";
 import { Pending } from "@/components/site/shell";
+import { asset } from "@/lib/utils";
 
 export function CollectionPage({ product }: { product: Product }) {
   return (
@@ -8,7 +9,7 @@ export function CollectionPage({ product }: { product: Product }) {
       <section className="grid lg:grid-cols-2">
         <div className="relative min-h-[70vh] bg-ink-2">
           <img
-            src={product.cardImage.src}
+            src={asset(product.cardImage.src)}
             alt={product.cardImage.alt}
             width={product.cardImage.width}
             height={product.cardImage.height}

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { products } from "@/data/catalog";
 import { techChapters } from "@/data/content";
+import { asset } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +22,7 @@ function Home() {
     <main id="inhalt">
       <section className="relative min-h-[88vh] overflow-hidden bg-ink">
         <img
-          src="/images/hero.jpg"
+          src={asset("/images/hero.jpg")}
           alt="Gestaltungsbild zweier Carbon-Laufräder im schwarzen Studio. Kein Serienfoto."
           width={1792}
           height={1008}
@@ -77,7 +78,7 @@ function Home() {
               <article key={product.slug} className="bg-ink text-paper">
                 <Link to="/produkt/$slug" params={{ slug: product.slug }} className="block">
                   <img
-                    src={product.cardImage.src}
+                    src={asset(product.cardImage.src)}
                     alt={product.cardImage.alt}
                     width={product.cardImage.width}
                     height={product.cardImage.height}
@@ -97,7 +98,7 @@ function Home() {
 
       <section className="grid lg:grid-cols-2">
         <img
-          src="/images/weave.jpg"
+          src={asset("/images/weave.jpg")}
           alt="Makro einer Carbon-Oberfläche, Materialstudie."
           width={1408}
           height={1408}
@@ -131,7 +132,7 @@ function Home() {
 
       <section className="relative min-h-[70vh]">
         <img
-          src="/images/rider.jpg"
+          src={asset("/images/rider.jpg")}
           alt="Editorial einer anonymen Fahrerin oder eines Fahrers von hinten, ohne Markenzeichen."
           width={1792}
           height={1008}

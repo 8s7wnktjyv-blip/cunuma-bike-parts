@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useInquiryStore } from "@/lib/inquiry-store";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 
 const NAV = [
   { to: "/road", label: "Road" },
@@ -49,7 +49,7 @@ export function SiteHeader() {
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
         <Link to="/" className="flex items-center" aria-label="CUNUMA, Startseite">
-          <img src="/logo-light.png" alt="" width={1343} height={279} className="h-7 w-auto sm:h-8" />
+          <img src={asset("/logo-light.png")} alt="" width={1343} height={279} className="h-7 w-auto sm:h-8" />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Hauptnavigation">
           {NAV.map((item) => (
@@ -117,7 +117,7 @@ export function SiteFooter() {
     <footer className="border-t border-line bg-ink">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img src="/logo-light.png" alt="CUNUMA" width={1343} height={279} className="h-8 w-auto" />
+          <img src={asset("/logo-light.png")} alt="CUNUMA" width={1343} height={279} className="h-8 w-auto" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone">
             Premium-Marke für Carbon-Laufräder im Road- und Gravel-Bereich. Was nicht bestätigt ist,
             steht nicht als Tatsache.

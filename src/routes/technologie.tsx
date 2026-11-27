@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { techChapters } from "@/data/content";
+import { asset } from "@/lib/utils";
 
 export const Route = createFileRoute("/technologie")({
   head: () => ({
@@ -28,14 +29,14 @@ function Technology() {
       </section>
       <section className="grid lg:grid-cols-2">
         <img
-          src="/images/hub.jpg"
+          src={asset("/images/hub.jpg")}
           alt="Nahaufnahme einer Nabenstudie. Kein bestätigtes Serienbauteil."
           width={1408}
           height={1408}
           className="h-full max-h-[80vh] w-full object-cover"
         />
         <img
-          src="/images/weave.jpg"
+          src={asset("/images/weave.jpg")}
           alt="Makro einer Carbon-Oberfläche. Keine Layup-Angabe."
           width={1408}
           height={1408}
