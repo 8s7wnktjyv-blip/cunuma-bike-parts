@@ -1,0 +1,1 @@
+import{s as e}from"./link-CbLTYCOY.js";import{n as t}from"./index-Clh5l4VP.js";import{t as n}from"./collection-DwhRHN0f.js";var r=e(),i=()=>(0,r.jsx)(n,{product:t.gravel});export{i as component};
